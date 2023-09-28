@@ -13,5 +13,12 @@ namespace eCommerce.Models.FluentAPI
         public DbSet<EnderecoEntrega>? EnderecosEntrega { get; set; }
         public DbSet<Departamento>? Departamentos { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
+            modelBuilder.Entity<Usuario>().Property(a => a.RG).HasColumnName("REGISTREO_GERAL").HasMaxLength(10).HasDefaultValue("RG-AUSENTE");
+            modelBuilder.Entity<Usuario>().HasIndex(a => a.CPF);
+        }
+
     }
 }
