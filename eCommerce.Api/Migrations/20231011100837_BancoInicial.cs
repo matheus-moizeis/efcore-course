@@ -114,6 +114,20 @@ namespace eCommerce.Api.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Departamentos",
+                columns: new[] { "Id", "Nome" },
+                values: new object[,]
+                {
+                    { 1, "Moda" },
+                    { 2, "Informática" },
+                    { 3, "Móveis" },
+                    { 4, "Mercado" },
+                    { 5, "Eletrodomésticos" },
+                    { 6, "Eletroportáteis" },
+                    { 7, "Beleza" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Contatos_UsuarioId",
                 table: "Contatos",
